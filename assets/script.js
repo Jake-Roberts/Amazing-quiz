@@ -1,7 +1,16 @@
 // start game function
+function startGame() {
+
+}
 // next question function 
+function setNextQuestion() {
+
+}
 // highscore function 
 //save to local storage function 
+function saveScore () {
+    
+}
 // create questions object
 const myQuestions = [
     {

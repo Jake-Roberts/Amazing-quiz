@@ -1,18 +1,14 @@
-// start game function
-function startGame() {
+const startButton = document.getElementById("start-btn");
+const questionContainerElement = document.getElementById('question-container')
+const questionElement = document.getElementById('question')
+const answerButtonsElement = document.getElementById('answer-buttons')
+const shuffledQuestions, currentQuestionIndex
+startButton.addEventListener('click', startGame)
+const nextButton = document.getElementById("next-btn");
 
-}
-// next question function 
-function setNextQuestion() {
 
-}
-// highscore function 
-//save to local storage function 
-function saveScore () {
-    
-}
 // create questions object
-const myQuestions = [
+const questions = [
     {
         question: 'What is the greatest video game of all time?',
         choices: [
@@ -51,3 +47,32 @@ const myQuestions = [
         ]
     },
 ];
+// start game function
+function startGame() {
+    console.log("started")
+    startButton.classList.add('hide')
+    shuffledQuestions = questions.sort(() => Math.random() - .5)
+    currentQuestionIndex = 0
+    questionContainerElement.classList.remove('hide')
+    setNextQuestion()
+}
+// next question function 
+function setNextQuestion() {
+    showQuestion(shuffledQuestions[currentQuestionIndex])
+    
+}
+
+function showQuestion(question) {
+    questionElement.innerText = question.question
+    
+}
+// highscore function 
+//save to local storage function 
+function saveScore () {
+
+}
+
+// select answer
+function selectAnswer() {
+
+}

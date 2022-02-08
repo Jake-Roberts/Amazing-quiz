@@ -1,4 +1,5 @@
 const startButton = document.getElementById('start-btn')
+const welcome = document.getElementById('welcome')
 const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
@@ -21,6 +22,7 @@ console.log(answerButtonsElement)
 
 // start game function
 function startGame() {
+  welcome.classList.add('hide')
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
@@ -44,7 +46,7 @@ function setNextQuestion() {
 }
 
 
-function showQuestion(question) {
+function showQuestion(questions) {
     questionElement.innerText = question.question
     question.answers.forEach(answer => {
       const button = document.createElement('button')

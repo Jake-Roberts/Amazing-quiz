@@ -10,7 +10,7 @@ var round = 0;
 var timerInterval;
 
 let shuffledQuestions, currentQuestionIndex
-
+                                                    
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', () => {
   currentQuestionIndex++
@@ -31,11 +31,11 @@ function startGame() {
       if (timerLeft > 0 ) {
           timerLeft--;
           timerElement.innerText = "You Have " + timerLeft + " Seconds";
-      } else {
-          endOfQuiz()
-      }
-  }, 1000);
-  setNextQuestion()
+        } else {
+            endOfQuiz()
+        }
+    }, 1000);
+    setNextQuestion()
 }
 
 // next question function 
@@ -46,14 +46,14 @@ function setNextQuestion() {
 }
 
 
-function showQuestion(questions) {
+function showQuestion(question) {
     questionElement.innerText = question.question
-    question.answers.forEach(answer => {
+    question.answers.forEach(answers => {
       const button = document.createElement('button')
-      button.innerText = answer.text
+      button.innerText = answers.text
       button.classList.add('btn')
-      if (answer.correct) {
-        button.dataset.correct = answer.correct
+      if (answers.correct) {
+        button.dataset.correct = answers.correct
       }
       button.addEventListener('click', selectAnswer)
       answerButtonsElement.appendChild(button)
@@ -61,7 +61,7 @@ function showQuestion(questions) {
   }
   
   function resetState() {
-    clearStatusClass(document.body)
+    // clearStatusClass(document.body)
     nextButton.classList.add('hide')
     while (answerButtonsElement.firstChild) {
       answerButtonsElement.removeChild(answerButtonsElement.firstChild)
